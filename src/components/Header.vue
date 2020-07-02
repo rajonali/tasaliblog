@@ -1,5 +1,6 @@
 <template>
 <v-app>
+
     <v-app-bar app color="primary" dark>
         <div class="d-flex align-center">
 
@@ -31,14 +32,16 @@
 
     </v-app-bar>
 
+
+
+    
     <v-content>
 
         <router-view></router-view>
     </v-content>
 
 
-    ///
-
+<Footer />
 
 
 
@@ -51,8 +54,14 @@
 import * as firebase from 'firebase/app';
 import "firebase/auth";
 
-export default {
 
+import Footer from '../components/Footer';
+
+
+export default {
+components:{
+    Footer
+},
 
     created(){
         firebase.auth().onAuthStateChanged(user => {
@@ -70,6 +79,8 @@ export default {
             loggedIn: false
         }
     },
+
+
 
     methods: {
         async signOut(){

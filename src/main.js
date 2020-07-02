@@ -45,7 +45,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path:'/home', component:Home, name:'home', meta:{requiresAuth:true}
+    path:'/home', component:Home, name:'home',
   },
   {
     path:'/work', component:Work, name:'work', meta:{requiresAuth:true}

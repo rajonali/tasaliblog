@@ -1,13 +1,42 @@
 <template>
-<h1>home</h1>
+
+<div>
+
+
+<Sidebar />
+<FeaturedPosts />
+<PaginatedPosts />
+
+
+</div>
+
+
+
+
+
+
+
 </template>
 
 <script>
+
+
+import FeaturedPosts from '../components/FeaturedPosts';
+import PaginatedPosts from '../components/PaginatedPosts';
+
+import Sidebar from '../components/Sidebar';
+
+
+
+
 
 export default {
   name: 'Home',
 
   components: {
+    FeaturedPosts,
+    PaginatedPosts,
+    Sidebar,
   },
 
   data: () => ({
@@ -15,3 +44,7 @@ export default {
   }),
 };
 </script>
+            error:'',
+            title:'',
+            body:'',
+            author:'',
