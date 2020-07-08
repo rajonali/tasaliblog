@@ -1,32 +1,30 @@
 <template>
-<v-app>
 
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="blue">
         <div class="d-flex align-center">
 
-            <h1>Tas Ali Blog</h1>
+            <router-link to="home" style="text-decoration: none"><h1 style="color:white">🛸 tasali.io </h1></router-link>
 
         </div>
 
         <v-spacer></v-spacer>
 
-        <div>
+     
+        <div style="display:flex;flex-direction:row;align-items:space-between;justify-content:space-between">
 
-            <span>Logged In:</span> <span v-if="loggedIn">Yes</span> <span v-else>No</span>
-        </div>
-                <v-spacer></v-spacer>
+            <div style="width:90px"><router-link style="color:white" to="/work"><v-btn color="#fee17b" style="color:black"><strong>Work</strong></v-btn></router-link>	</div>
+<div style="width:110px">            <router-link style="color:white" to="/opinion"><v-btn color="#fee17b" style="color:black"><strong>Opinion</strong></v-btn></router-link>	</div>
+<div style="width:135px">            <router-link style="color:white" to="/resources"><v-btn color="#fee17b" style="color:black"><strong>Resources</strong></v-btn></router-link>	 </div>
+<div>            <router-link style="color:white" to="/personal"><v-btn color="#fee17b" style="color:black"><strong>Personal</strong></v-btn></router-link></div>
 
-        <div>
-    <v-btn class="danger" @click="signOut">Sign out</v-btn>
-    </div>
-        <v-spacer></v-spacer>
+<span>              <v-btn
+      class="ma-2"
+      color="red"
+      text-color="white"
+    v-if="!loggedIn" @click="redirectLogin">Login</v-btn> </span>
 
-        <div class="align-center" style="color:white">
+             
 
-            <router-link style="color:white" to="/work">Work</router-link> |
-            <router-link style="color:white" to="/opinion">Opinion</router-link> |
-            <router-link style="color:white" to="/resources">Resources</router-link> |
-            <router-link style="color:white" to="/personal">Personal</router-link>
 
         </div>
 
@@ -34,19 +32,12 @@
 
 
 
+
     
-    <v-content>
-
-        <router-view></router-view>
-    </v-content>
-
-
-<Footer />
 
 
 
     
-</v-app>
 </template>
 
 <script>
@@ -55,12 +46,10 @@ import * as firebase from 'firebase/app';
 import "firebase/auth";
 
 
-import Footer from '../components/Footer';
 
 
 export default {
 components:{
-    Footer
 },
 
     created(){
@@ -76,7 +65,11 @@ components:{
 
     data() {
         return {
-            loggedIn: false
+            loggedIn: false,
+                items:[{tagname:'python, node-js, java, c++, vue, microcontrollers, fpga, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque imperdiet est eleifend mauris ultricies '}],
+    error:'',
+    feeds: [{name:'computer-science'}, {name:'electrical-engineering'}],
+    username:'tasali01'
         }
     },
 
@@ -91,6 +84,16 @@ components:{
             } catch (error) {
                 console.log(error)
             }
+        },
+
+
+        redirectLogin(){
+            try{
+                this.$router.replace({name:'login'})
+            }
+            catch(error){
+                console.log(error);
+            }
         }
 
     }
@@ -100,4 +103,13 @@ components:{
 
 <style lang="scss" scoped>
 
+
+.sidebar-h1 {
+    color:white
+}
+
+
+.sidebar-text {
+    color:white
+}
 </style>

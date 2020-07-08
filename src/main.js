@@ -57,7 +57,7 @@ const routes = [
     path:'/resources', component:Resources, name:'resources', meta:{requiresAuth:true}
   },
   {
-    path:'/opinion', component:Opinion, name:'opinion', meta:{requiresAuth:true}
+    path:'/opinion', component:Opinion, name:'opinion'
   },
   {
     path:'/login', component:Login, name:'login', 

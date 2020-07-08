@@ -1,7 +1,8 @@
 <template>
     <div>
-<h1>Paginated posts</h1>
 <Post />
+<br />
+   <center><button>View all ></button></center>
     </div>
 </template>
 
